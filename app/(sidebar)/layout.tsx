@@ -1,0 +1,3 @@
+import Link from "next/link";
+const links = [["Inventory", "/inventory"], ["Reorder List", "/reorder"], ["Requests", "/requests"], ["Departments", "/departments"], ["Suppliers", "/suppliers"]] as const;
+export default function AppLayout({ children }: { children: React.ReactNode }) { return <div className="shell"><aside><Link className="brand" href="/inventory">Office<span>Stock</span></Link><p className="eyebrow">Inventory control</p><nav>{links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</nav><p className="aside-note">Demo workspace<br/>No sign-in required</p></aside><main className="content">{children}</main></div>; }

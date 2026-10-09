@@ -116,38 +116,38 @@ create policy "audit_logs_v1_write" on audit_logs for all using (true) with chec
 
 -- Seed: departments
 insert into departments (id, name) values
-  ('11111111-0000-0000-0000-dept00000001', 'Administration'),
-  ('11111111-0000-0000-0000-dept00000002', 'Sales'),
-  ('11111111-0000-0000-0000-dept00000003', 'Finance'),
-  ('11111111-0000-0000-0000-dept00000004', 'Operations')
+  ('11111111-0000-0000-0000-000000000001', 'Administration'),
+  ('11111111-0000-0000-0000-000000000002', 'Sales'),
+  ('11111111-0000-0000-0000-000000000003', 'Finance'),
+  ('11111111-0000-0000-0000-000000000004', 'Operations')
 on conflict (id) do nothing;
 
 -- Seed: suppliers
 insert into suppliers (id, name, contact) values
-  ('22222222-0000-0000-0000-sup0000000001', 'OfficeMart Supplies', 'orders@officemart.example'),
-  ('22222222-0000-0000-0000-sup0000000002', 'PantryPro Distributors', 'sales@pantrypro.example'),
-  ('22222222-0000-0000-0000-sup0000000003', 'StationeryHub', 'hello@stationeryhub.example')
+  ('22222222-0000-0000-0000-000000000001', 'OfficeMart Supplies', 'orders@officemart.example'),
+  ('22222222-0000-0000-0000-000000000002', 'PantryPro Distributors', 'sales@pantrypro.example'),
+  ('22222222-0000-0000-0000-000000000003', 'StationeryHub', 'hello@stationeryhub.example')
 on conflict (id) do nothing;
 
 -- Seed: items
 insert into items (id, name, item_code, category, unit, opening_stock, stock_received, stock_issued, current_balance, minimum_stock_level, expiry_date, supplier_id, unit_price, stock_location) values
-  ('33333333-0000-0000-0000-item00000001', 'A4 Paper (Ream)', 'STA-A4', 'Stationery', 'ream', 20, 10, 18, 12, 5, null, '22222222-0000-0000-0000-sup0000000001', 4.50, 'Store Room A'),
-  ('33333333-0000-0000-0000-item00000002', 'Blue Ballpoint Pen', 'STA-PEN-BL', 'Stationery', 'pcs', 200, 50, 210, 40, 100, null, '22222222-0000-0000-0000-sup0000000001', 0.25, 'Stationery Cupboard'),
-  ('33333333-0000-0000-0000-item00000003', 'Instant Coffee 200g', 'PAN-COF-200', 'Pantry', 'jar', 15, 5, 9, 11, 4, '2025-02-28', '22222222-0000-0000-0000-sup0000000002', 6.20, 'Pantry Shelf 1'),
-  ('33333333-0000-0000-0000-item00000004', 'Sugar Sachets (Box)', 'PAN-SGR-100', 'Pantry', 'box', 10, 0, 9, 1, 3, '2025-01-15', '22222222-0000-0000-0000-sup0000000002', 3.40, 'Pantry Shelf 2'),
-  ('33333333-0000-0000-0000-item00000005', 'Binder Clip (Medium)', 'STA-BC-M', 'Stationery', 'box', 30, 0, 27, 3, 5, null, '22222222-0000-0000-0000-sup0000000003', 1.80, 'Stationery Cupboard')
+  ('33333333-0000-0000-0000-000000000001', 'A4 Paper (Ream)', 'STA-A4', 'Stationery', 'ream', 20, 10, 18, 12, 5, null, '22222222-0000-0000-0000-000000000001', 4.50, 'Store Room A'),
+  ('33333333-0000-0000-0000-000000000002', 'Blue Ballpoint Pen', 'STA-PEN-BL', 'Stationery', 'pcs', 200, 50, 210, 40, 100, null, '22222222-0000-0000-0000-000000000001', 0.25, 'Stationery Cupboard'),
+  ('33333333-0000-0000-0000-000000000003', 'Instant Coffee 200g', 'PAN-COF-200', 'Pantry', 'jar', 15, 5, 9, 11, 4, '2027-02-28', '22222222-0000-0000-0000-000000000002', 6.20, 'Pantry Shelf 1'),
+  ('33333333-0000-0000-0000-000000000004', 'Sugar Sachets (Box)', 'PAN-SGR-100', 'Pantry', 'box', 10, 0, 9, 1, 3, '2027-01-15', '22222222-0000-0000-0000-000000000002', 3.40, 'Pantry Shelf 2'),
+  ('33333333-0000-0000-0000-000000000005', 'Binder Clip (Medium)', 'STA-BC-M', 'Stationery', 'box', 30, 0, 27, 3, 5, null, '22222222-0000-0000-0000-000000000003', 1.80, 'Stationery Cupboard')
 on conflict (id) do nothing;
 
 -- Seed: stock_transactions
 insert into stock_transactions (id, item_id, type, quantity, requestor, department, transaction_date, notes) values
-  ('44444444-0000-0000-0000-txn0000000001', '33333333-0000-0000-0000-item00000001', 'received', 10, 'Admin', 'Administration', '2025-01-05', 'Monthly restock'),
-  ('44444444-0000-0000-0000-txn0000000002', '33333333-0000-0000-0000-item00000001', 'issued', 8, 'John', 'Sales', '2025-01-08', 'Weekly issue'),
-  ('44444444-0000-0000-0000-txn0000000003', '33333333-0000-0000-0000-item00000003', 'issued', 4, 'Jane', 'Finance', '2025-01-10', 'Pantry use')
+  ('44444444-0000-0000-0000-000000000001', '33333333-0000-0000-0000-000000000001', 'received', 10, 'Admin', 'Administration', '2025-01-05', 'Monthly restock'),
+  ('44444444-0000-0000-0000-000000000002', '33333333-0000-0000-0000-000000000001', 'issued', 8, 'John', 'Sales', '2025-01-08', 'Weekly issue'),
+  ('44444444-0000-0000-0000-000000000003', '33333333-0000-0000-0000-000000000003', 'issued', 4, 'Jane', 'Finance', '2025-01-10', 'Pantry use')
 on conflict (id) do nothing;
 
 -- Seed: requests
 insert into requests (id, item_id, requestor, department, quantity, status, notes) values
-  ('55555555-0000-0000-0000-req0000000001', '33333333-0000-0000-0000-item00000002', 'John', 'Sales', 10, 'fulfilled', 'Monthly stationery'),
-  ('55555555-0000-0000-0000-req0000000002', '33333333-0000-0000-0000-item00000005', 'Jane', 'Finance', 2, 'pending', 'For filing'),
-  ('55555555-0000-0000-0000-req0000000003', '33333333-0000-0000-0000-item00000004', 'Mike', 'Operations', 1, 'pending', 'Sugar for tea area')
+  ('55555555-0000-0000-0000-000000000001', '33333333-0000-0000-0000-000000000002', 'John', 'Sales', 10, 'fulfilled', 'Monthly stationery'),
+  ('55555555-0000-0000-0000-000000000002', '33333333-0000-0000-0000-000000000005', 'Jane', 'Finance', 2, 'pending', 'For filing'),
+  ('55555555-0000-0000-0000-000000000003', '33333333-0000-0000-0000-000000000004', 'Mike', 'Operations', 1, 'pending', 'Sugar for tea area')
 on conflict (id) do nothing;
